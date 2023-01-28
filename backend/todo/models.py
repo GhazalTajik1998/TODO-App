@@ -17,7 +17,7 @@ class Task(models.Model):
     # Use auto_now_add at creation time , also it is recommended to not use them
     # Use your custom save method
     created = models.DateTimeField(editable=False)
-    updated  = models.DateTimeField()
+    updated  = models.DateTimeField(editable=False)
     deadline = models.DateTimeField()
     priority = models.PositiveIntegerField(blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
