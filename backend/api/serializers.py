@@ -20,7 +20,16 @@ class TaskCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         exclude = ('user',)
+    
 
+    # # Not working because my updated field is set to editable=False and my serializer
+    # # does not contain the updated and created field
+    
+    # def validate_deadline(self, value):
+    #     print(self.initial_data.get('updated'))
+    #     if value <= self.initial_data.get('updated'):
+    #         raise serializers.ValidationError("Deadline cannot be earlier that update time")
+    #     return value
 class TaskSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
 

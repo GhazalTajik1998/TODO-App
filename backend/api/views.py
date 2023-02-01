@@ -32,9 +32,9 @@ class TaskViewSet(ModelViewSet):
 
     queryset = Task.objects.all()
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
-    ordering_fields = ['priority']
-    # filterset_fields = ['completed', 'priority']
-    ordering = ['priority']
+    ordering_fields = ['priority', 'compeleted']
+    filterset_fields = ['completed']
+    ordering = ['completed', 'priority']
     def get_queryset(self):
         user = self.request.user
         if user is not None:    
